@@ -9,7 +9,7 @@ if [ "$1" == "clean" ]; then
   exit 0
 fi
 
-set -x
+# set -x
 TAILS_VERSION=$(curl -s http://dl.amnesia.boum.org/tails/stable/ | sed -n "s/^.*\(tails-amd64-[0-9.]*\).*$/\1/p")
 if [ -z "$TAILS_VERSION" ]; then
   echo "Could not detect latest version of TAILS. Please report this issue at"
