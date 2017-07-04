@@ -10,7 +10,7 @@ if [ "$1" == "clean" ]; then
 fi
 
 set -x
-TAILS_VERSION=$(curl -s http://dl.amnesia.boum.org/tails/stable/ | sed -n "s/^.*\(tails-i386-[0-9.]*\).*$/\1/p")
+TAILS_VERSION=$(curl -s http://dl.amnesia.boum.org/tails/stable/ | sed -n "s/^.*\(tails-amd64-[0-9.]*\).*$/\1/p")
 if [ -z "$TAILS_VERSION" ]; then
   echo "Could not detect latest version of TAILS. Please report this issue at"
   echo "https://github.com/hellais/TAILS-OSX/issues/new"
@@ -64,8 +64,8 @@ mount_iso () {
 }
 
 verify_tails () {
-  curl -o data/tails-signing.key $TAILS_KEY_URL
-  curl -o data/tails.iso.sig $TAILS_SIG_URL
+  curl -o data/tails-signing.key -L $TAILS_KEY_URL
+  curl -o data/tails.iso.sig -L $TAILS_SIG_URL
  
   rm -f data/tmp_keyring.pgp
   gpg --no-default-keyring --keyring data/tmp_keyring.pgp --import data/tails-signing.key
