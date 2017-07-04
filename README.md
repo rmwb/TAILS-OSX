@@ -1,7 +1,7 @@
-# TAILS OSX
+# TAILS MacOS Command Line INstaller
 
-Following this guide you will be able to create a TAILS image that will work on
-OSX without requiring any REFIT or bootloader modifications to the target
+Following this guide you will be able to create a [TAILS](https://tails.boum.org/) image that will work on
+most Apple Mac computers without requiring any REFIT or bootloader modifications to the target
 system.
 
 ## Dependencies
@@ -29,8 +29,8 @@ If you want to build the EFI bootloader yourself you will also need:
 ## Setup TAILS OSX
 
 ```
-git clone https://github.com/hellais/TAILS-OSX.git
-cd TAILS-OSX
+git clone https://github.com/rmwb/tails-installer-macos-cli.git
+cd tails-installer-macos-cli
 ```
 
 ## Create the EFI bootloader (optional)
