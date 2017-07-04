@@ -1,4 +1,4 @@
-# TAILS MacOS Command Line INstaller
+# TAILS MacOS Command Line Installer
 
 Following this guide you will be able to create a [TAILS](https://tails.boum.org/) image that will work on
 most Apple Mac computers without requiring any REFIT or bootloader modifications to the target
@@ -6,7 +6,7 @@ system.
 
 ## Dependencies
 
-In order to create a TAILS disk image for OSX you will need the following
+In order to create a TAILS disk image on MacOS you will need the following
 dependencies:
 
   * [gnupg](http://www.gnupg.org/download/)
@@ -35,7 +35,7 @@ cd tails-installer-macos-cli
 
 ## Create the EFI bootloader (optional)
 
-You can build the EFI bootloader directly from Mac OSX (given you have
+You can build the EFI bootloader directly from the MacOS Terminal (given you have
 installed vagrant and virtualbox) by running:
 
 ```
