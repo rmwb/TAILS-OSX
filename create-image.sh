@@ -51,13 +51,13 @@ mount_disk () {
 }
 
 mount_iso () {
-  # This mounts the .iso and returns it's mount point
+  # This mounts the .iso and returns its mount point
   local  __resultvar=$1
   if [ "$( uname -s )" == "Darwin" ];then
     local mount_point="/Volumes/TAILS_ISO"
     hdiutil attach -mountpoint $mount_point data/tails.iso
   else
-    echo "Currently don't support building image on this platform"
+    echo "Currently don't support building image on this platform."
     exit 1
   fi
   eval $__resultvar="'$mount_point'"
@@ -93,15 +93,15 @@ download_tails () {
 
 list_disks () {
   # This lists all the disks in a way that is readable by the user. The read
-  # input will then be passed as arugment to the create_disk function.
-  diskutil list
-  echo "for example: disk2"
+  # input will then be passed as argument to the create_disk function.
+  diskutil list 
 }
 
 create_image () {
 
   echo "What disk would you like to use for the TAILS image? "
-  list_disks 
+  list_disks
+  echo "for example: disk2"
   read TARGET_DISK
 
   echo "Warning $TARGET_DISK will be erased. Do you wish to continue [y|n]? "
@@ -134,13 +134,13 @@ create_image () {
   mount_iso ISO_PATH
   mount_disk DISK_PATH
 
-  mkdir -p $DISK_PATH/efi/boot/
+  mkdir -p $DISK_PATH/EFI/BOOT/
 
   echo "[+] Copying BOOTX64.efi"
-  cp data/BOOTX64.efi $DISK_PATH/efi/boot/
+  cp data/BOOTX64.efi $DISK_PATH/EFI/BOOT/
 
   echo "[+] Copying grub.cfg"
-  cp grub.cfg $DISK_PATH/efi/boot/
+  cp grub.cfg $DISK_PATH/EFI/BOOT/
 
   echo "[+] Copying live directory"
   rsync -ah --progress $ISO_PATH/live $DISK_PATH
