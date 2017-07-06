@@ -91,18 +91,18 @@ download_tails () {
   mv data/tails-tmp.iso data/tails.iso
 }
 
-list_disks () {
+choose_disk () {
   # This lists all the disks in a way that is readable by the user. The read
   # input will then be passed as argument to the create_disk function.
+  echo "What disk would you like to use for the TAILS image?"
   diskutil list 
+  echo "for example: disk2"
+  read TARGET_DISK
 }
 
 create_image () {
 
-  echo "What disk would you like to use for the TAILS image? "
-  list_disks
-  echo "for example: disk2"
-  read TARGET_DISK
+  choose_disk
 
   echo "Warning $TARGET_DISK will be erased. Do you wish to continue [y|n]? "
   read ans 
