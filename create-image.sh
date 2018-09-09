@@ -88,7 +88,7 @@ verify_tails () {
 
 download_tails () {
   echo "[+] Downloading $TAILS_VERSION image."
-  curl -o data/tails-tmp.iso $TAILS_ISO_URL
+  curl -o data/tails-tmp.iso -L $TAILS_ISO_URL
   mv data/tails-tmp.iso data/tails.iso
 }
 
